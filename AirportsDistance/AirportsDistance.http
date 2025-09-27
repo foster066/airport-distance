@@ -1,0 +1,9 @@
+@AirportsDistance_HostAddress = http://localhost:5006
+
+POST {{AirportsDistance_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "VKO",
+  "IataCodeSecond": "DME"
+}
+###

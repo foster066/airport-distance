@@ -1,0 +1,42 @@
+@AviaExpress.AirportDistance.LoadBalancer_HostAddress = http://localhost:5282
+
+### Happy path
+POST {{AviaExpress.AirportDistance.LoadBalancer_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "VKO",
+  "IataCodeSecond": "DME"
+}
+### Same airport, 0 expected
+POST {{AviaExpress.AirportDistance.LoadBalancer_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "DME",
+  "IataCodeSecond": "DME"
+}
+
+### First code is not specified, error expected
+POST {{AviaExpress.AirportDistance.LoadBalancer_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "",
+  "IataCodeSecond": "DME"
+}
+
+### Second code is not specified, error expected
+POST {{AviaExpress.AirportDistance.LoadBalancer_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "DME",
+  "IataCodeSecond": ""
+}
+###
+
+### Incorrect symbols, error expected
+POST {{AviaExpress.AirportDistance.LoadBalancer_HostAddress}}/api/distance/airports
+Content-Type: application/json
+{
+  "IataCodeFirst": "DM2",
+  "IataCodeSecond": "VK1"
+}
+###

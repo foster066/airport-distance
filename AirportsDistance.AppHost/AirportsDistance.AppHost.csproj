@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>12f11937-fb1f-4a00-9aaf-ba9e624b783d</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.4.2" />
+    <PackageReference Include="Aspire.Hosting.Yarp" Version="9.4.2-preview.1.25428.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AirportsDistance\AviaExpress.AirportsDistance.Web.csproj" />
+    <ProjectReference Include="..\AviaExpress.AirportDistance.LoadBalancer\AviaExpress.AirportDistance.LoadBalancer.csproj" />
+  </ItemGroup>
+
+</Project>
